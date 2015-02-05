@@ -13,9 +13,10 @@ var style = {
 
 var overlayStyle = {
     position: 'absolute',
-    top: 100,
+    top: 0,
     left: '50%',
-    borderRadius: 3
+    borderRadius: 3,
+    margin: '100px auto'
 };
 
 var OverlayPortal = React.createClass({
@@ -27,7 +28,7 @@ var OverlayPortal = React.createClass({
             onShadeClick: function () {}
         };
     },
-    
+
     render: function () {
 
         overlayStyle.width = this.props.width;
@@ -35,15 +36,14 @@ var OverlayPortal = React.createClass({
 
         return (
             <div style={style}>
-                <Shade onClick={this.props.onShadeClick} />
-                <div style={overlayStyle}>
-                    {this.props.children}
-                </div>
+                <Shade onClick={this.props.onShadeClick}>
+                    <div style={overlayStyle}>
+                        {this.props.children}
+                    </div>
+                </Shade>
             </div>
         );
     }
 });
 
 module.exports = OverlayPortal;
-
-

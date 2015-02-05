@@ -17,11 +17,11 @@ var style = {
 
 var stylesLeft = {
         float: 'left',
-        margin: '20px 30px 20px 0'
+        margin: '20px 30px 20px 30px'
     },
     stylesRight = {
         float: 'right',
-        margin: '20px 0 20px 30px'
+        margin: '20px 30px 20px 30px'
     };
 
 FooterLeft = React.createClass({

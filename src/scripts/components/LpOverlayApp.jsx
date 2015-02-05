@@ -7,7 +7,7 @@
 var React = require('react/addons');
 var ReactTransitionGroup = React.addons.TransitionGroup;
 
-var {State, Navigation, Link} = require('react-router');
+var {State, Navigation, Link, RouteHandler} = require('react-router');
 
 var Overlay = require('./Overlay');
 
@@ -34,18 +34,21 @@ var LpOverlayApp = React.createClass({
 
         return (
           <div className='main'>
-            <Link to="edit">Edit</Link>
-
+            <Link to="page-1">Edit</Link>
             {editing && (
                 <Overlay width={1024} onShadeClick={this.closeOverlay}>
                     <Overlay.closeButton onClick={this.closeOverlay} />
                     <Overlay.header>
                         My Overlay
                     </Overlay.header>
-                    <Overlay.body>
-                        <div>Here is some cool stuff</div>
+                    <Overlay.body style={{height: 100}}>
+                        <RouteHandler />
                     </Overlay.body>
                     <Overlay.footer>
+                        <Overlay.footer.left>
+                            <Button onClick={this.transitionTo.bind(null, 'page-1', null, null)}>One</Button>
+                            <Button onClick={this.transitionTo.bind(null, 'page-2', null, null)}>Two</Button>
+                        </Overlay.footer.left>
                         <Overlay.footer.right>
                             <Button onClick={this.closeOverlay}>OK</Button>
                         </Overlay.footer.right>

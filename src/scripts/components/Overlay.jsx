@@ -13,7 +13,6 @@ var Overlay = React.createClass({
 
     componentDidMount: function() {
         var node = document.createElement('div');
-        node.className = "lp-overlay-portal";
         document.body.appendChild(node);
         this.node = node;
 
